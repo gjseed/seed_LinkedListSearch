@@ -16,7 +16,6 @@ namespace DLL
 
         public void Add(Node node)
         {
-            Console.WriteLine("\n" + counter + node.fullname + "\n");
             // check for empty list. If empty add to head
             if (head == null)
             {
@@ -27,17 +26,15 @@ namespace DLL
                 return;
                 //return head;
             }
-
             Node current = head;
-
             // if not empty, search the list for insert point
-            while (current != null)
+            while (current != null)//first male name gets stuck in this loop/ why?
             {
                 Node next = current.Next;
                 // handle null tail
 
                 // handle new head
-                if (current.fullname.CompareTo(node.fullname) > 0)
+                if (current.fullname.CompareTo(node.fullname) < 0)
                 {
                     if (next == null)
                     {
@@ -66,7 +63,7 @@ namespace DLL
                         return;
                     }
                 }
-                else if (current.fullname.CompareTo(node.fullname) < 0)
+                else if (current.fullname.CompareTo(node.fullname) > 0)
                 {
                     head = node;
                     head.Next = current;

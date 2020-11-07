@@ -18,7 +18,7 @@ namespace seed_LinkedListSearch
             String line;
             //Pass the file path and file name to the StreamReader constructor
             string filePath = Path.GetFullPath("yob2019.txt");
-            StreamReader file = new StreamReader(filePath);
+              StreamReader file = new StreamReader(filePath);
             //Read the file and Continue to read until you reach end of file
             while ((line = file.ReadLine()) != null)
             {
@@ -72,7 +72,11 @@ namespace seed_LinkedListSearch
                     Console.WriteLine("\n");
                     Console.WriteLine("Enter the name you are searching for.");
                     string input = Console.ReadLine();
-                    ll.Search(input);
+                    Node node = ll.Search(input);
+                    if(node != null)
+                    {
+                        Console.WriteLine("You searched for " + input + "and " + node.fullname + "was found.");
+                    }
                 }
                 else if (Choice.Key == ConsoleKey.E)
                 {
